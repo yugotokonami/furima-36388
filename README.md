@@ -1,24 +1,39 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column           | Type               | Option                         |
+| -----------------| -------------------| -------------------------------|
+| email            | string             | null: false                    |
+| password         | string             | null: false                    |
+| nickname         | string             | null: false                    |
+| name             | string             | null: false                    |
+| birthday         | string             | null: false                    |
 
-Things you may want to cover:
+## itemsテーブル
 
-* Ruby version
+| Column           | Type               | Option                         |
+| -----------------| -------------------| -------------------------------|
+| title            | string             | null: false                    |
+| catch_copy       | text               | null: false                    |
+| concept          | text               | null: false                    |
+| user             | references         | null: false, foreign_key: true |
 
-* System dependencies
+## commentsテーブル
 
-* Configuration
+| Column           | Type               | Option                         |
+| -----------------| -------------------| -------------------------------|
+| text             | text               | null: false                    |
+| user             | references         | null: false, foreign_key: true |
+| item             | references         | null: false, foreign_key: true |
 
-* Database creation
+## ordersテーブル
 
-* Database initialization
+| Column           | Type               | Option                         |
+| -----------------| -------------------| -------------------------------|
+| oreder_name      | string             | null: false                    |
+| order_address    | string             | null: false                    |
 
-* How to run the test suite
+## addressesテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column           | Type               | Option                         |
+| -----------------| -------------------| -------------------------------|
+| oreder           | references         | null: false, foreign_key: true |
