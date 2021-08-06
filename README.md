@@ -15,25 +15,27 @@
 
 - has_many :items
 - has_many :comments
+- has_one :order
 
 ## itemsテーブル
 
-| Column           | Type               | Option                         |
-| -----------------| -------------------| -------------------------------|
-| name             | string             | null: false                    |
-| catch_copy       | text               | null: false                    |
-| price            | integer            | null: false                    |
-| state            | text               | null: false                    |
-| postage          | text               | null: false                    |
-| prefecture_id    | integer            | null: false                    |
-| shipping_date    | date               | null: false                    |
-| category         | string             | null: false                    |
-| user             | references         | null: false, foreign_key: true |
+| Column              | Type                  | Option                         |
+| --------------------| ----------------------| -------------------------------|
+| name                | string                | null: false                    |
+| catch_copy          | text                  | null: false                    |
+| price               | integer               | null: false                    |
+| state_id            | integer               | null: false                    |
+| postage_id          | integer               | null: false                    |
+| prefecture_id       | integer               | null: false                    |
+| shipping_date       | date                  | null: false                    |
+| category_id         | integer               | null: false                    |
+| user                | references            | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
+- has_one :order
 
 ## commentsテーブル
 
@@ -55,10 +57,14 @@
 | order_name       | string             | null: false                    |
 | order_address    | string             | null: false                    |
 | phone_number     | string             | null: false                    |
+| user             | references         | null: false, foreign_key: true |
+| item             | references         | null: false, foreign_key: true |
 
 ### Association
 
 - has_one :address
+- belongs_to :order
+- belongs_to :user
 
 ## addressesテーブル
 
@@ -69,7 +75,7 @@
 | prefecture_id    | integer            | null: false                    |
 | city             | string             | null: false                    |
 | block            | string             | null: false                    |
-| building         | string             | null: false                    |
+| building         | string             |                                |
 | phone_number     | string             | null: false                    |
 
 ### Association
