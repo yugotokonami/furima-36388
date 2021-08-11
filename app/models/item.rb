@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :catch_copy
-    validates :price
+    validates :price, inclusion: { in: 300..9_999_999, message: 'は¥300~¥9,999,999の間を設定してください'}, format: { with: /\A[0-9]+\z/, message: 'は半角数字を使用してください'}
+    validates :image
 
     validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
     validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
