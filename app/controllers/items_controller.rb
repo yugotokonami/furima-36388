@@ -18,16 +18,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-  end
+  # def destroy
+  #   item = Item.find(params[:id])
+  #   item.destroy
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
   def show
     @item = Item.find(params[:id])
