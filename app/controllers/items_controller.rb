@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:edit, :update, :show]
+  before_action :set_item, only: [:destroy,:edit, :update, :show]
   before_action :move_to_index, except: [:index, :new, :create, :show]
 
   def index
@@ -20,10 +20,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   item = Item.find(params[:id])
-  #   item.destroy
-  # end
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
 
   def edit
   end
